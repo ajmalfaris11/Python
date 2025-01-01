@@ -1,0 +1,28 @@
+Introduction to Python
+_______________________
+
+
+What is Python?
+----------------
+Python is a high-level, interpreted programming language.
+Known for its simplicity and readability.
+Developed by Guido van Rossum in 1991.
+
+
+Key Features:
+--------------
+Easy to Learn: Simple syntax similar to English.
+Interpreted Language: Executes code line by line, no need for compilation.
+Dynamically Typed: No need to declare variable types explicitly.
+Extensive Libraries: Libraries like NumPy, Pandas, Matplotlib, TensorFlow, etc.
+Cross-Platform: Runs on Windows, macOS, Linux, etc.
+Versatile: Used in web development, data science, AI, machine learning, automation, and more.
+
+
+Popular Uses of Python:
+-----------------------
+Web Development: Frameworks like Django and Flask.
+Data Science: Libraries like Pandas, NumPy, and Scikit-learn.
+Automation: Automating repetitive tasks using scripts.
+Game Development: Libraries like Pygame.
+Machine Learning/AI: TensorFlow, PyTorch.
