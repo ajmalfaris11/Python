@@ -65,3 +65,19 @@ no_value = None # None
 
 # Check data type eg:-
 print("printing person type :-", type(person))
+
+# _______________________________________________________________________________________________________
+
+# tips for assign same values to multiple variables 
+a = b = c = 10
+print(a)
+print(b)
+print(c)
+
+# Tips for assign multiple values to multiple variables in single line
+a, b, c = "Tomato", "Onion", "Cabbage"
+print(a)
+print(b)
+print(c)
+
+# _______________________________________________________________________________________________________
