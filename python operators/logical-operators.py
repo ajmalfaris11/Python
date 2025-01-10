@@ -7,11 +7,6 @@
 
 
 
-
-
-
-
-
 # PYTHON LOGICAL OPERATORS EXAMPLES
 # **********************************
 
