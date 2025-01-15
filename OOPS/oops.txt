@@ -1,0 +1,188 @@
+Python is an object-oriented programming language, and its Object-Oriented Programming System (OOPS)
+ paradigm is a method of structuring programs around objects, which combine data (attributes)
+  and functionality (methods). Below is a breakdown of the OOPS concepts in Python:
+
+__________________________________________________________________________________
+
+
+ 1. Class
+A class is a blueprint for creating objects. It defines the structure and behavior of objects.
+
+```python
+class Person:
+    def __init__(self, name, age):
+        self.name = name  # Attribute
+        self.age = age    # Attribute
+
+    def greet(self):  # Method
+        print(f"Hello, my name is {self.name}.")
+```
+
+__________________________________________________________________________________
+
+
+ 2. Object
+An object is an instance of a class. It is created using the class blueprint.
+
+```python
+# Creating an object
+person1 = Person("Alice", 25)
+person1.greet()  # Output: Hello, my name is Alice.
+```
+
+__________________________________________________________________________________
+
+
+ 3. Encapsulation
+Encapsulation is the bundling of data and methods within a class. It restricts direct access to some of the object's components, providing controlled access through methods.
+
+- Private attributes/methods: Use a double underscore prefix (`__`) to make an attribute or method private.
+
+```python
+class BankAccount:
+    def __init__(self, balance):
+        self.__balance = balance  # Private attribute
+
+    def deposit(self, amount):
+        self.__balance += amount
+
+    def get_balance(self):
+        return self.__balance
+
+account = BankAccount(1000)
+account.deposit(500)
+print(account.get_balance())  # Output: 1500
+# print(account.__balance)  # Error: AttributeError
+```
+
+__________________________________________________________________________________
+
+
+ 4. Inheritance
+Inheritance allows one class to inherit attributes and methods from another class, promoting code reuse.
+
+- Parent Class: The class being inherited from.
+- Child Class: The class that inherits.
+
+```python
+class Animal:
+    def speak(self):
+        print("I can make a sound.")
+
+class Dog(Animal):  # Inherits from Animal
+    def speak(self):
+        print("I bark.")
+
+dog = Dog()
+dog.speak()  # Output: I bark.
+```
+
+__________________________________________________________________________________
+
+
+ 5. Polymorphism
+Polymorphism allows methods in different classes to have the same name but behave differently based on the object that calls them.
+
+```python
+class Bird:
+    def fly(self):
+        print("I can fly high.")
+
+class Penguin(Bird):
+    def fly(self):
+        print("I cannot fly, but I can swim.")
+
+bird = Bird()
+penguin = Penguin()
+
+bird.fly()      # Output: I can fly high.
+penguin.fly()   # Output: I cannot fly, but I can swim.
+```
+
+__________________________________________________________________________________
+
+
+ 6. Abstraction
+Abstraction is the process of hiding implementation details and showing only the necessary features of an object. This is achieved using abstract classes.
+
+- Abstract classes are created using the `abc` module and cannot be instantiated directly.
+
+```python
+from abc import ABC, abstractmethod
+
+class Vehicle(ABC):
+    @abstractmethod
+    def start_engine(self):
+        pass
+
+class Car(Vehicle):
+    def start_engine(self):
+        print("Car engine started.")
+
+car = Car()
+car.start_engine()  # Output: Car engine started.
+```
+
+__________________________________________________________________________________
+
+
+ 7. Method Overriding
+A child class can provide its own implementation of a method inherited from the parent class.
+
+```python
+class Parent:
+    def show(self):
+        print("Parent class method.")
+
+class Child(Parent):
+    def show(self):
+        print("Child class method.")
+
+obj = Child()
+obj.show()  # Output: Child class method.
+```
+
+__________________________________________________________________________________
+
+
+ 8. Method Overloading (Simulated in Python)
+Python does not support method overloading directly, but it can be achieved using default arguments or variable-length arguments.
+
+```python
+class Calculator:
+    def add(self, a, b=0):
+        return a + b
+
+calc = Calculator()
+print(calc.add(5))      # Output: 5
+print(calc.add(5, 10))  # Output: 15
+```
+
+__________________________________________________________________________________
+
+
+ 9. Constructors and Destructors
+- Constructor (`__init__`): Initializes an object's attributes.
+- Destructor (`__del__`): Cleans up resources when the object is deleted.
+
+```python
+class Example:
+    def __init__(self):
+        print("Constructor called.")
+
+    def __del__(self):
+        print("Destructor called.")
+
+obj = Example()
+del obj  # Output: Constructor called. Destructor called.
+```
+
+__________________________________________________________________________________
+
+
+ Key Benefits of OOPS in Python
+1. Code Reusability: Through inheritance.
+2. Modularity: Classes make the code easier to organize and manage.
+3. Flexibility: Polymorphism and method overriding allow flexible designs.
+4. Data Security: Encapsulation ensures controlled access to data.
+
