@@ -1,0 +1,163 @@
+Python Inheritance:-
+---------------------
+Inheritance is an Object-Oriented Programming (OOP) concept that allows a class 
+(child class) to derive or inherit the properties and behaviors (methods) of another
+ class (parent class). It promotes code reusability and modularity.
+
+__________________________________________________________________________________
+
+
+ Key Concepts
+1. Parent Class (Base Class):
+   - The class from which properties and methods are inherited.
+
+2. Child Class (Derived Class):
+   - The class that inherits the properties and methods from the parent class.
+
+__________________________________________________________________________________
+
+
+ Syntax
+```python
+class Parent:
+    # Parent class definition
+    pass
+
+class Child(Parent):
+    # Child class definition
+    pass
+```
+
+__________________________________________________________________________________
+
+
+ Types of Inheritance in Python
+1. Single Inheritance:
+   - A child class inherits from one parent class.
+   ```python
+   class Parent:
+       def greet(self):
+           print("Hello from Parent")
+
+   class Child(Parent):
+       pass
+
+   obj = Child()
+   obj.greet()  # Output: Hello from Parent
+   ```
+
+2. Multiple Inheritance:
+   - A child class inherits from multiple parent classes.
+   ```python
+   class Parent1:
+       def greet1(self):
+           print("Hello from Parent1")
+
+   class Parent2:
+       def greet2(self):
+           print("Hello from Parent2")
+
+   class Child(Parent1, Parent2):
+       pass
+
+   obj = Child()
+   obj.greet1()  # Output: Hello from Parent1
+   obj.greet2()  # Output: Hello from Parent2
+   ```
+
+3. Multilevel Inheritance:
+   - A child class inherits from a parent class, which itself inherits from another class.
+   ```python
+   class Grandparent:
+       def greet(self):
+           print("Hello from Grandparent")
+
+   class Parent(Grandparent):
+       pass
+
+   class Child(Parent):
+       pass
+
+   obj = Child()
+   obj.greet()  # Output: Hello from Grandparent
+   ```
+
+4. Hierarchical Inheritance:
+   - Multiple child classes inherit from a single parent class.
+   ```python
+   class Parent:
+       def greet(self):
+           print("Hello from Parent")
+
+   class Child1(Parent):
+       pass
+
+   class Child2(Parent):
+       pass
+
+   obj1 = Child1()
+   obj2 = Child2()
+   obj1.greet()  # Output: Hello from Parent
+   obj2.greet()  # Output: Hello from Parent
+   ```
+
+5. Hybrid Inheritance:
+   - A combination of two or more types of inheritance, forming a complex hierarchy.
+
+__________________________________________________________________________________
+
+
+ Overriding Methods
+A child class can override a method from the parent class by redefining it.
+
+```python
+class Parent:
+    def greet(self):
+        print("Hello from Parent")
+
+class Child(Parent):
+    def greet(self):
+        print("Hello from Child")
+
+obj = Child()
+obj.greet()  # Output: Hello from Child
+```
+
+__________________________________________________________________________________
+
+
+ `super()` Keyword
+The `super()` function is used to call a parent class’s methods or constructor from the child class.
+
+```python
+class Parent:
+    def __init__(self, name):
+        self.name = name
+
+class Child(Parent):
+    def __init__(self, name, age):
+        super().__init__(name)  # Calls Parent's constructor
+        self.age = age
+
+obj = Child("Zain", 22)
+print(obj.name, obj.age)  # Output: Zain 22
+```
+
+__________________________________________________________________________________
+
+
+ Benefits of Inheritance
+1. Code Reusability: Avoid rewriting common methods and attributes.
+2. Modularity: Promotes a hierarchical class structure.
+3. Extensibility: Easily extend existing classes with new features.
+
+__________________________________________________________________________________
+
+
+ Real-Life Analogy
+Inheritance is like a family tree:
+- A child inherits traits (attributes) and skills (methods) from their parents but can also develop their own traits and skills.
+
+__________________________________________________________________________________
+
+
