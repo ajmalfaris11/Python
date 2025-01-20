@@ -1,0 +1,43 @@
+Encapsulation is one of the four fundamental principles of Object-Oriented Programming (OOP),
+alongside Abstraction, Inheritance, and Polymorphism. Encapsulation is a technique of wrapping
+data (variables) and code (methods) together as a single unit, thereby restricting direct access
+to some of the object’s components. This helps in safeguarding the internal state of an object
+and ensuring that interaction with it adheres to the defined rules and logic.
+
+ Key Aspects of Encapsulation
+ ----------------------------
+
+1. Data Hiding:
+   - Internal details of an object are hidden from the outside world. Only a controlled interface is exposed.
+   - By using access modifiers (e.g., `private`, `protected`, `public` in Java or C++), access to certain parts of a class is restricted.
+   
+2. Controlled Access:
+   - Encapsulation allows access to an object’s properties and methods through public methods (getters and setters), providing controlled access.
+   - Example: Allowing read-only or write-only access to specific variables.
+
+3. Improved Maintainability:
+   - By encapsulating related data and behavior, code becomes modular and easier to maintain and debug.
+
+4. Protection from Unauthorized Access:
+   - Encapsulation ensures that objects can guard their internal states and prevent unauthorized changes.
+
+5. Flexibility and Reusability:
+   - Changes to the encapsulated code do not affect the external code that uses the object, enabling flexibility and code reuse.
+
+
+___________________________________________________________________
+
+ Benefits of Encapsulation
+ -------------------------
+
+1. Enhanced Security: Sensitive data is hidden from unauthorized access.
+2. Simplified Code Interaction: Provides a clear interface to interact with the object.
+3. Modularity: Encourages dividing the code into smaller, manageable units.
+4. Flexibility for Change: Internal implementation can change without affecting external code.
+
+Encapsulation, therefore, promotes clean, maintainable, and scalable software design.
+
+
+Restricts access to certain parts of an object to protect the data.
+Use underscores (_) to indicate protected attributes and double
+underscores (__) for private attributes.
