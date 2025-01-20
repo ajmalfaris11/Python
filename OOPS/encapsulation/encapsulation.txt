@@ -1,43 +1,63 @@
-Encapsulation is one of the four fundamental principles of Object-Oriented Programming (OOP),
-alongside Abstraction, Inheritance, and Polymorphism. Encapsulation is a technique of wrapping
-data (variables) and code (methods) together as a single unit, thereby restricting direct access
-to some of the object’s components. This helps in safeguarding the internal state of an object
-and ensuring that interaction with it adheres to the defined rules and logic.
 
- Key Aspects of Encapsulation
- ----------------------------
+Encapsulation in Python is the practice of bundling data (attributes) and methods (functions)
+that operate on the data into a single unit, typically a class. It also involves restricting
+direct access to some components of the object, exposing only the necessary interface to
+interact with it.
+
+Python supports encapsulation through access modifiers:
+-------------------------------------------------------
+
+
+1. Public Members: Accessible from anywhere.
+2. Protected Members: Indicated by a single underscore `_`, intended for internal use but
+   accessible outside the class with a warning.
+3. Private Members: Indicated by a double underscore `__`, accessible only within the class.
+
+_______________________________________________________________________________________________
+
+Key Features of Encapsulation in Python
+---------------------------------------
 
 1. Data Hiding:
-   - Internal details of an object are hidden from the outside world. Only a controlled interface is exposed.
-   - By using access modifiers (e.g., `private`, `protected`, `public` in Java or C++), access to certain parts of a class is restricted.
-   
+   - Prevents direct modification of attributes from outside the class.
+   - Ensures data integrity by controlling how attributes are accessed and modified.
+
 2. Controlled Access:
-   - Encapsulation allows access to an object’s properties and methods through public methods (getters and setters), providing controlled access.
-   - Example: Allowing read-only or write-only access to specific variables.
+   - Provides access to private/protected attributes through getter and setter methods.
+   - Allows implementation of logic during attribute access or modification.
 
 3. Improved Maintainability:
-   - By encapsulating related data and behavior, code becomes modular and easier to maintain and debug.
+   - Encapsulation helps in creating modular code, making it easier to maintain and debug.
 
-4. Protection from Unauthorized Access:
-   - Encapsulation ensures that objects can guard their internal states and prevent unauthorized changes.
+_______________________________________________________________________________________________
 
-5. Flexibility and Reusability:
-   - Changes to the encapsulated code do not affect the external code that uses the object, enabling flexibility and code reuse.
+Key Points About Access Modifiers
+---------------------------------
 
+1. Public Attributes:
+   - Accessible directly without restrictions.
+   - Example: `self.name`.
 
-___________________________________________________________________
+2. Protected Attributes:
+   - Indicated with a single leading underscore (`_`).
+   - Can be accessed outside the class but should be treated as internal.
+   - Example: `self._department`.
 
- Benefits of Encapsulation
- -------------------------
+3. Private Attributes:
+   - Indicated with a double leading underscore (`__`).
+   - Name mangling occurs, making it harder to access directly (e.g., `self.__salary` becomes `_ClassName__salary`).
+   - Example: `self.__salary`.
 
-1. Enhanced Security: Sensitive data is hidden from unauthorized access.
-2. Simplified Code Interaction: Provides a clear interface to interact with the object.
-3. Modularity: Encourages dividing the code into smaller, manageable units.
-4. Flexibility for Change: Internal implementation can change without affecting external code.
+_______________________________________________________________________________________________
 
-Encapsulation, therefore, promotes clean, maintainable, and scalable software design.
+Advantages of Encapsulation in Python
+-------------------------------------
 
-
-Restricts access to certain parts of an object to protect the data.
-Use underscores (_) to indicate protected attributes and double
-underscores (__) for private attributes.
+1. Data Security:
+   - Prevents unauthorized access to attributes.
+2. Abstraction:
+   - Hides implementation details and exposes only the required functionality.
+3. Flexibility:
+   - Allows controlled modification of data through methods (getters and setters).
+4. Code Maintainability:
+   - Makes code modular and easier to debug.
