@@ -1,0 +1,161 @@
+Polymorphism in Python
+-----------------------
+
+Polymorphism in Python refers to the ability of different objects to respond to the same method
+or function in their own way. It allows methods to be used generically across different
+types of objects, promoting flexibility and code reuse.
+
+Python achieves polymorphism through:
+-------------------------------------
+
+1. Method Overriding: In inheritance, a subclass can provide its own 
+   implementation for a method defined in the parent class.
+
+2. Duck Typing: Python's dynamic typing allows the same function
+   or method to work on different types of objects as long as they
+   support the required behavior.
+
+3. Operator Overloading: Python allows customization of the behavior
+   of operators for user-defined types.
+
+____________________________________________________________________________________
+
+
+ Types of Polymorphism in Python
+
+1. Compile-time Polymorphism (Method Overloading):
+   - Python does not support traditional method overloading as seen in languages like
+    Java or C++. However, we can achieve similar behavior by using default arguments 
+    or variable arguments (`*args` and `kwargs`).
+
+2. Runtime Polymorphism (Method Overriding):
+   - This occurs when a subclass overrides a method of the parent class.
+
+____________________________________________________________________________________
+
+
+Examples of Polymorphism in Python
+++++++++++++++++++++++++++++++++++
+
+1. Polymorphism with Inheritance (Method Overriding)
+----------------------------------------------------
+
+```python
+class Animal:
+    def speak(self):
+        return "Animal makes a sound"
+
+class Dog(Animal):
+    def speak(self):
+        return "Dog barks"
+
+class Cat(Animal):
+    def speak(self):
+        return "Cat meows"
+
+# Demonstrating polymorphism
+animals = [Dog(), Cat(), Animal()]
+for animal in animals:
+    print(animal.speak())
+```
+
+Output:
+```
+Dog barks
+Cat meows
+Animal makes a sound
+```
+
+____________________________________________________________________________________
+
+
+2. Polymorphism with Functions
+--------------------------------
+```python
+class Rectangle:
+    def area(self, length, width):
+        return length * width
+
+class Circle:
+    def area(self, radius):
+        return 3.14 * radius * radius
+
+# Using the same function name `area`
+shapes = [Rectangle(), Circle()]
+
+# Calculate areas
+print(shapes[0].area(5, 10))  # Rectangle area
+print(shapes[1].area(7))      # Circle area
+```
+
+Output:
+```
+50
+153.86
+```
+
+____________________________________________________________________________________
+
+
+3. Polymorphism with Duck Typing
+--------------------------------
+
+```python
+class Car:
+    def start(self):
+        print("Car is starting...")
+
+class Bike:
+    def start(self):
+        print("Bike is starting...")
+
+def start_vehicle(vehicle):
+    vehicle.start()
+
+# Passing objects of different types
+start_vehicle(Car())
+start_vehicle(Bike())
+```
+
+Output:
+```
+Car is starting...
+Bike is starting...
+```
+
+____________________________________________________________________________________
+
+
+4. Operator Overloading
+--------------------------
+```python
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __add__(self, other):
+        return Point(self.x + other.x, self.y + other.y)
+
+    def __str__(self):
+        return f"({self.x}, {self.y})"
+
+p1 = Point(1, 2)
+p2 = Point(3, 4)
+p3 = p1 + p2  # Using overloaded `+` operator
+print(p3)
+```
+
+Output:
+```
+(4, 6)
+```
+
+____________________________________________________________________________________
+
+
+ Key Points
+------------
+- Polymorphism allows a unified interface to handle different data types or objects.
+- It makes code more flexible and easier to maintain.
+- Python's dynamic nature and support for duck typing make polymorphism highly intuitive.
