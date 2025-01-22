@@ -1,0 +1,166 @@
+ Theory of Abstraction in Python
+_________________________________
+
+Abstraction is one of the core principles of Object-Oriented Programming (OOP).
+It focuses on hiding the complexity of a system and exposing only the essential 
+features or functionality to the user. This allows for cleaner, more modular, and 
+user-friendly code.
+
+  Key Concepts of Abstraction
+++++++++++++++++++++++++++++++
+
+1. Hiding Implementation Details:
+   - The internal workings of a class or method are hidden from the user.
+   - Only the relevant information is exposed, making it easier to use the object.
+
+2. Abstract Classes and Methods:
+   - Abstract classes serve as blueprints for other classes.
+   - They cannot be instantiated directly and are designed to be subclassed.
+   - Abstract methods are declared but not implemented in the abstract class. 
+     Subclasses must provide concrete implementations for these methods.
+
+3. Real-Life Analogy:
+   - A car dashboard is an example of abstraction. The driver interacts with 
+     controls like the steering wheel and accelerator but does not need to understand
+     how the engine or transmission works internally.
+
+__________________________________________________________________________________________
+
+ Implementation of Abstraction in Python
+ ---------------------------------------
+
+Python provides support for abstraction using the `abc` (Abstract Base Class) module. 
+Here's how it works:-
+
+# 1. Abstract Base Class (ABC)
+------------------------------
+- An abstract class is defined using the `ABC` class from the `abc` module.
+- Use the `@abstractmethod` decorator to declare abstract methods that must be 
+  implemented in derived classes.
+
+Abstract Class and Method
+--------------------------
+
+```python
+from abc import ABC, abstractmethod
+
+class Animal(ABC):
+    @abstractmethod
+    def make_sound(self):
+        pass
+
+class Dog(Animal):
+    def make_sound(self):
+        return "Bark"
+
+class Cat(Animal):
+    def make_sound(self):
+        return "Meow"
+
+# Instantiate concrete classes
+dog = Dog()
+cat = Cat()
+
+print(dog.make_sound())  # Output: Bark
+print(cat.make_sound())  # Output: Meow
+
+# The following would raise an error since we cannot instantiate an abstract class:
+# animal = Animal()
+```
+
+__________________________________________________________________________________________
+
+# 2. Abstract Properties
+--------------------------
+
+We can define abstract properties using the `@property` decorator alongside `@abstractmethod`.
+
+```python
+from abc import ABC, abstractmethod
+
+class Shape(ABC):
+    @property
+    @abstractmethod
+    def area(self):
+        pass
+
+class Rectangle(Shape):
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    @property
+    def area(self):
+        return self.width * self.height
+
+rect = Rectangle(5, 10)
+print(rect.area)  # Output: 50
+```
+
+__________________________________________________________________________________________
+
+# 3. Multiple Abstract Methods
+-------------------------------
+
+Abstract classes can have multiple abstract methods, which must all be implemented in derived classes.
+
+```python
+from abc import ABC, abstractmethod
+
+class Vehicle(ABC):
+    @abstractmethod
+    def start_engine(self):
+        pass
+
+    @abstractmethod
+    def stop_engine(self):
+        pass
+
+class Car(Vehicle):
+    def start_engine(self):
+        return "Car engine started."
+
+    def stop_engine(self):
+        return "Car engine stopped."
+
+car = Car()
+print(car.start_engine())  # Output: Car engine started.
+print(car.stop_engine())   # Output: Car engine stopped.
+```
+
+__________________________________________________________________________________________
+
+# 4. Abstract Classes with Concrete Methods
+--------------------------------------------
+
+An abstract class can also have concrete (implemented) methods that provide default functionality.
+
+```python
+from abc import ABC, abstractmethod
+
+class Appliance(ABC):
+    def plug_in(self):
+        return "Plugged in!"
+
+    @abstractmethod
+    def operate(self):
+        pass
+
+class WashingMachine(Appliance):
+    def operate(self):
+        return "Washing clothes."
+
+machine = WashingMachine()
+print(machine.plug_in())   # Output: Plugged in!
+print(machine.operate())   # Output: Washing clothes.
+```
+
+__________________________________________________________________________________________
+
+ Advantages of Abstraction
+ ---------------------------
+1. Simplifies Code Usage: Users can work with high-level interfaces without worrying about low-level details.
+2. Encourages Reusability: Abstract classes provide reusable components.
+3. Promotes Flexibility: Different implementations of abstract methods allow for varied behavior in subclasses.
+4. Improves Maintainability: Changes in implementation don't affect the interface.
+
